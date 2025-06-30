@@ -96,8 +96,10 @@ const Home = () => {
             duration: 1000,  // animation duration
             easing: "ease",  // default easing
             once: false,     // whether animation should happen only once
-        })
-    }, [])
+        });
+        // Optional: refresh on update
+        Aos.refresh();
+    }, []);
 
     return (
         <div>
@@ -109,9 +111,9 @@ const Home = () => {
                     autoplay={{ delay: 2500, disableOnInteraction: false }}
                     loop={true}
                 >
-                    <SwiperSlide><img className='w-full' src={banner1} alt="" /></SwiperSlide>
-                    <SwiperSlide><img className='w-full' src={banner2} alt="" /></SwiperSlide>
-                    <SwiperSlide><img className='w-full' src={banner3} alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='w-full lg:h-[677px]' src={banner1} alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='w-full lg:h-[677px]' src={banner2} alt="" /></SwiperSlide>
+                    <SwiperSlide><img className='w-full lg:h-[677px]' src={banner3} alt="" /></SwiperSlide>
                 </Swiper>
             </section>
             {/* this is for how it's works */}
@@ -263,7 +265,7 @@ const Home = () => {
             </section>
             {/* this seciton for What our customers are sayings */}
             <section className="my-10">
-                <div className="flex flex-col justify-center items-center ">
+                <div data-aos="fade-right" className="flex flex-col justify-center items-center ">
                     <div>
                         <img src={customer_top_img} alt="" className="w-32 sm:w-40 md:w-48 mx-auto" />
                     </div>
@@ -338,10 +340,12 @@ const Home = () => {
             {/* this section for Frequently Asked Question (FAQ) */}
             <section className="py-10 px-2">
                 <div className="max-w-6xl mx-auto">
-                    <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-[#184C4B] mb-2">Frequently Asked Question (FAQ)</h2>
-                    <p className="text-center text-gray-600 mb-8 text-base sm:text-lg max-w-2xl mx-auto">
-                        Enhance posture, mobility, and well-being effortlessly with Posture Pro. Achieve proper alignment, reduce pain, and strengthen your body with ease!
-                    </p>
+                    <div data-aos="fade-down-right">
+                        <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-[#184C4B] mb-2">Frequently Asked Question (FAQ)</h2>
+                        <p className="text-center text-gray-600 mb-8 text-base sm:text-lg max-w-2xl mx-auto">
+                            Enhance posture, mobility, and well-being effortlessly with Posture Pro. Achieve proper alignment, reduce pain, and strengthen your body with ease!
+                        </p>
+                    </div>
                     {/* FAQ Accordion */}
                     <div className="flex flex-col gap-4">
                         {faqs.map((faq, idx) => (
