@@ -1,11 +1,13 @@
 import { useLoaderData } from "react-router"
+import BangladeshLIve from "./BangladeshLIve";
 
 const Coverage = () => {
     const loadData = useLoaderData()
-    console.log(loadData);
-    
     return (
-        <div>Coverage</div>
+        <div>
+            <p>Coverage</p>
+            <BangladeshLIve loadData={loadData} />
+        </div>
     )
 }
 
